@@ -104,7 +104,16 @@
 
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
-    "skipLibCheck": true /* ckip type checking all .d.ts files. */
+    "skipLibCheck": true /* ckip type checking all .d.ts files. */,
+    "paths": {
+      "@/*": ["src/*"],
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@store": ["src/store"],
+      "@store/*": ["src/store/*"],
+      "@assets": ["src/assets"],
+      "@assets/*": ["src/assets/*"]
+    }
   },
   "include": ["src/*.d.ts", "src/**/*.js", "src/**/*.svelte"],
   "exclude": ["node_modules"]

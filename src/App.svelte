@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Counter } from "./components";
+  import { Counter } from "@components";
 
-  import imgUrl from "../src/assets/svelte.png";
+  import imgUrl from "@assets/svelte.png";
   export let message = "hello";
 </script>
 

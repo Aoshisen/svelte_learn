@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { count } from "../../store";
+  import { count } from "@store";
   const handleClick = count.increment;
 </script>
 
