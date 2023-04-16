@@ -1,12 +1,8 @@
 <script lang="ts">
-  const handleClick = () => {
-    console.log("click");
-  };
-  export let increment = () => {};
-
-  export let counter = { value: 0 };
+  import { count } from "../../store";
+  const handleClick = count.increment;
 </script>
 
-<button on:click={increment}> Clicks:{counter.value} </button>
+<button on:click={handleClick}> Clicks:{$count} </button>
 
 <style lang="scss" src="./Counter.scss"></style>

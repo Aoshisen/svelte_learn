@@ -1,14 +1,14 @@
-import { configureStore, createReducer } from "@reduxjs/toolkit";
-import counterReducer from "./counterSlice"
-const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-});
+import { writable } from "svelte/store";
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+function createCount() {
+  const { subscribe, set, update } = writable(0);
 
-export default store;
+  return {
+    subscribe,
+    increment: () => update((n) => (n += 1)),
+    decrement: () => update((n) => (n -= 1)),
+    reset: () => set(0),
+  };
+}
+
+export const count = createCount();

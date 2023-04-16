@@ -1,9 +1,13 @@
 <script lang="ts">
   import { Counter } from "./components";
-  import { Provider } from "svelte-redux-connect";
-  import store from "./store";
+
+  import imgUrl from "../src/assets/svelte.png";
+  export let message = "hello";
 </script>
 
-<Provider {store}>
+<main>
+  <img src={imgUrl} alt="" />
+
+  <h1>{message}</h1>
   <Counter />
-</Provider>
+</main>
