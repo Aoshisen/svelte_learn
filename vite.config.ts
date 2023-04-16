@@ -2,6 +2,9 @@ import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import sveltePreprocess from "svelte-preprocess";
 import path from "path";
+function pathResolve(_path: string) {
+  return path.resolve(__dirname, _path);
+}
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -11,10 +14,10 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./"),
-      "@components": path.resolve(__dirname, "./src/components"),
-      "@store": path.resolve(__dirname, "./src/store"),
-      "@assets": path.resolve(__dirname, "./src/assets"),
+      "@": pathResolve("./"),
+      "@components": pathResolve("./src/components"),
+      "@store": pathResolve("./src/store"),
+      "@assets": pathResolve("./src/assets"),
     },
   },
 });

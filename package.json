@@ -13,13 +13,10 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.4",
     "svelte-preprocess": "^5.0.3",
-    "svelte-redux-connect": "^1.2.1",
     "typescript": "^5.0.4",
     "vite": "^4.2.1"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.3",
-    "redux": "^4.2.1",
     "sass": "^1.62.0",
     "svelte": "^3.58.0"
   }
