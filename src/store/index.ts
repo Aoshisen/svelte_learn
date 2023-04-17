@@ -7,15 +7,26 @@ const { data } = assLocalData;
 const { subscribe, set, update } = writable(data);
 const initAssLocalData = initData[GLOBALDATANAME["ASS"]];
 
+const { assign } = Object;
+
 const increment = () => {
   update((data) => {
-    return (data = { ...data, age: data.age + 1, status: STATUS.ACTIVE });
+    let assignData = {
+      age: data.age + 1,
+      status: STATUS.ACTIVE,
+    };
+
+    return (data = assign(data, assignData));
   });
 };
 
 const decrement = () => {
+  let assignData = {
+    age: data.age - 1,
+    status: STATUS.ACTIVE,
+  };
   update((data) => {
-    return (data = { ...data, age: data.age - 1, status: STATUS.ACTIVE });
+    return (data = assign(data, assignData));
   });
 };
 
