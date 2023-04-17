@@ -18,6 +18,7 @@ export default defineConfig({
       "@components": pathResolve("./src/components"),
       "@store": pathResolve("./src/store"),
       "@assets": pathResolve("./src/assets"),
+      "@utils": pathResolve("./src/utils"),
     },
   },
 });

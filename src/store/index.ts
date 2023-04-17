@@ -1,14 +1,35 @@
 import { writable } from "svelte/store";
+import { assLocalData } from "@utils";
+import { initData } from "@utils";
+import { STATUS, GLOBALDATANAME } from "@utils";
 
-function createCount() {
-  const { subscribe, set, update } = writable(0);
+const { data } = assLocalData;
+const { subscribe, set, update } = writable(data);
+const initAssLocalData = initData[GLOBALDATANAME["ASS"]];
 
-  return {
-    subscribe,
-    increment: () => update((n) => (n += 1)),
-    decrement: () => update((n) => (n -= 1)),
-    reset: () => set(0),
-  };
-}
+const increment = () => {
+  update((data) => {
+    return (data = { ...data, age: data.age + 1, status: STATUS.ACTIVE });
+  });
+};
 
-export const count = createCount();
+const decrement = () => {
+  update((data) => {
+    return (data = { ...data, age: data.age - 1, status: STATUS.ACTIVE });
+  });
+};
+
+const reset = () => {
+  set(initAssLocalData);
+};
+
+export const count = {
+  subscribe,
+  increment,
+  decrement,
+  reset,
+};
+
+count.subscribe((_data) => {
+  assLocalData.data = _data;
+});
