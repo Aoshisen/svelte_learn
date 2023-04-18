@@ -1,6 +1,3 @@
-/// <reference types="svelte" />
-/// <reference types="vite/client" />
-
 import App from "./App.svelte";
 
 const app = new App({
