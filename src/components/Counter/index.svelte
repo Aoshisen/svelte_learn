@@ -1,7 +1,5 @@
 <script lang="ts">
   import { count } from "@store";
-  console.log(count);
-
   const handleClick = count.increment;
 </script>
 
