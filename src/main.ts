@@ -1,3 +1,4 @@
+import { log } from "console";
 import App from "./App.svelte";
 import { injectCustomEventWhenSetItem, watchSetItem } from "./utils";
 
@@ -22,3 +23,44 @@ export const otherApp = new App({
 watchSetItem((e) => {
   console.log(e, "这是监听自定义事件的触发函数");
 });
+
+class Node {
+  private _head: null | Node;
+  private _next: Node | null;
+  public current: number;
+  constructor(current: number) {
+    this._head = null;
+    this.current = current;
+    this._next = null;
+  }
+  public set next(v: Node | null) {
+    this._next = v;
+    if (v) {
+      v._head = this;
+    }
+  }
+  public get next() {
+    return this._next;
+  }
+  public set head(v: Node | null) {
+    this._head = v;
+    if (v) {
+      v._next = this;
+    }
+  }
+
+  public get head() {
+    return this._head;
+  }
+}
+
+// const
+
+const n1 = new Node(1);
+const n2 = new Node(2);
+const n3 = new Node(3);
+
+n1.next = n2;
+n2.next = n3;
+
+console.log(n1);

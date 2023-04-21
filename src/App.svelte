@@ -11,3 +11,4 @@
 </main>
 
 <style lang="scss" src="./App.scss"></style>
+
