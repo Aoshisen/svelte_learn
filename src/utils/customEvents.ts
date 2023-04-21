@@ -26,7 +26,15 @@ const customSetItem = function (
 
 //自定义组装一个localStorage 对象
 const customStorage = {
-  ...localStorage,
+  getItem: function (key: string) {
+    return originalStorage.getItem(key);
+  },
+  removeItem: function (key: string) {
+    return originalStorage.removeItem(key);
+  },
+  clear: function () {
+    originalStorage.clear();
+  },
   setItem: customSetItem,
 };
 
