@@ -54,7 +54,21 @@ class Node {
   }
 }
 
-// const
+class LinkList {
+  public size = 0;
+  public _value: any;
+  constructor(list: Array<number>) {
+    this.size = list.length;
+    this._value = null;
+  }
+
+  public set(v: string) {
+    this._value = v;
+  }
+  public get() {
+    return this._value;
+  }
+}
 
 const n1 = new Node(1);
 const n2 = new Node(2);
