@@ -1,11 +1,11 @@
 import { writable } from "svelte/store";
-import { assLocalData } from "@utils";
+import { priceTypeLocalData } from "@utils";
 import { initData } from "@utils";
 import { STATUS, GLOBALDATANAME } from "@utils";
 
-const { data } = assLocalData;
+const { data } = priceTypeLocalData;
 const { subscribe, set, update } = writable(data);
-const initAssLocalData = initData[GLOBALDATANAME["ASS"]];
+const initAssLocalData = initData[GLOBALDATANAME["PRICETYPE"]];
 
 const { assign } = Object;
 
@@ -42,5 +42,5 @@ export const count = {
 };
 
 count.subscribe((_data) => {
-  assLocalData.data = _data;
+  priceTypeLocalData.data = _data;
 });

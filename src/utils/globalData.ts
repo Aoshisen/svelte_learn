@@ -1,5 +1,5 @@
 export enum GLOBALDATANAME {
-  ASS = "ass",
+  PRICETYPE = "pricetype",
 }
 
 //当前的数据是激活状态还是初始状态
@@ -15,10 +15,10 @@ export interface IAssData {
   status: STATUS;
 }
 
-export type IInitData = Record<GLOBALDATANAME, IAssData>;
+export type TInitData = Record<GLOBALDATANAME, IAssData>;
 
-export const initData: IInitData = {
-  ass: {
+export const initData: TInitData = {
+  pricetype: {
     name: "",
     age: 0,
     gender: "male",
@@ -47,6 +47,6 @@ class Local {
   }
 }
 
-let assLocalData = new Local(GLOBALDATANAME.ASS);
+let priceTypeLocalData = new Local(GLOBALDATANAME.PRICETYPE);
 
-export { assLocalData };
+export { priceTypeLocalData };
