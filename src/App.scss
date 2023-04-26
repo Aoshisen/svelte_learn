@@ -16,6 +16,60 @@ main {
     margin: 2rem auto;
     max-width: 14rem;
   }
+  .grid {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #000;
+    margin: 0 auto;
+    display: grid;
+
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); //定义一列多宽(优先级高于grid-auto-columns)
+    grid-template-rows: repeat(
+      3,
+      1fr
+    ); //定义一行多高 (优先级高于grid-auto-rows)
+    // grid-auto-columns: 1fr; //定义一列 多宽
+    // grid-auto-rows: 1fr; //定义一行多高
+
+    // grid-area: a;
+    // .item {
+    //   width: 120px;
+    //   height: 20px;
+    //   border: 1px solid #000;
+
+    //   // grid-area: 2/1/2/4;
+    //   // grid-area: a;
+    //   &:nth-child(1) {
+    //     // grid-area: 2/1/3/3;
+    //     grid-area: a;
+    //   }
+
+    //   &:nth-child(2) {
+    //     grid-area: b;
+    //   }
+
+    //   // &:nth-child(3) {
+    //   //   grid-area: c;
+    //   // }
+    //   // &:nth-child(4) {
+    //   //   grid-area: d;
+    //   // }
+    // }
+    grid-auto-flow: row; //定义元素该怎么排列在容器里面，第一个参数是排列的方向，row是先横着拍，column是竖着拍，第二个参数可以带dense 就是会默认的补全之前的空位
+    .item {
+      &:nth-child(1) {
+        // grid-area: 1/2/3/4;
+        grid-column: 1 / span 2;
+      }
+
+      // &:nth-child(2) {
+      //   grid-area: b;
+      // }
+    }
+  }
 }
 
 @media (min-width: 480px) {
