@@ -58,17 +58,50 @@ main {
     //   //   grid-area: d;
     //   // }
     // }
-    grid-auto-flow: row; //定义元素该怎么排列在容器里面，第一个参数是排列的方向，row是先横着拍，column是竖着拍，第二个参数可以带dense 就是会默认的补全之前的空位
+    // grid-auto-flow: row; //定义元素该怎么排列在容器里面，第一个参数是排列的方向，row是先横着拍，column是竖着拍，第二个参数可以带dense 就是会默认的补全之前的空位
+    // grid-template:
+    //   "a a a" 40px
+    //   "b c c" 40px
+    //   "b c c" 40px / 1fr 1fr 1fr;
+    //是定义grid-template-columns grid-template-rows 和grid-template-area 的集合
+    // grid-template-areas:
+    //   "a a a"
+    //   "b c c"
+    //   "b c c";
+    //定义每个划分的区域的名字
+    //如果不想命名就用 . 代替
+    // grid-template-rows: 1fr 2fr 1fr; //定义每行的高度
+    // grid-template-columns: 60px 60px 60px; //定义每列的宽度
     .item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       &:nth-child(1) {
         // grid-area: 1/2/3/4;
-        grid-column: 1 / span 2;
+        // grid-column: 1 / span 2;
+        // grid-column: 2/-1; //定义一个元素的开始的列，和结束的列,如果是负数的话,那么就三行三列的排列来说的话 1(-4),2(-3),3(-2),4(-1).
+        // grid-column-start: 2; //定义一个子元素开始的列的序号，可以为负数，也可以是下面的这种形式（grid-column-start:span 2）那么当前这个元素就会默认的补全grid-column-end 属性，在grid-column-start 的数值上面加上2
+        // grid-row: 1/-1; //定义一个元素的开始的行和结束的行的序号，
+        grid-row-end: 2; //定义一个元素的结束的行的序号 也可以写成下面这种形式 规则和grid-column-end 一样的
+        grid-row-start: 3; //定义一个元素开始位置行的序号
+        background-color: aliceblue;
       }
 
-      // &:nth-child(2) {
-      //   grid-area: b;
-      // }
+      &:nth-child(2) {
+        background-color: yellowgreen;
+        grid-column-start: 2;
+      }
+
+      &:nth-child(3) {
+        background-color: red;
+        grid-column-start: 2;
+      }
+
+      &:nth-child(4) {
+        background-color: floralwhite;
+      }
     }
+    gap: 10px 20px;
   }
 }
 
