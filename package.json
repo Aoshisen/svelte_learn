@@ -13,12 +13,15 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.4",
     "@tsconfig/svelte": "^4.0.1",
+    "@types/js-cookie": "^3.0.3",
     "@types/node": "^18.15.11",
-    "svelte-preprocess": "^5.0.3",
     "typescript": "^5.0.4",
-    "vite": "^4.2.1"
+    "vite": "^4.2.1",
+    "svelte-preprocess": "^5.0.3"
   },
   "dependencies": {
+    "js-cookie": "^3.0.5",
+    "axios": "^1.4.0",
     "sass": "^1.62.0",
     "svelte": "^3.58.0"
   }
