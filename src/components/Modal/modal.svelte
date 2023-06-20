@@ -46,11 +46,19 @@
   modal = { open, close };
 
   onDestroy(() => {
-    window.removeEventListener("keydown", close);
+    closeEffect();
   });
 </script>
 
-<div id="topModal" class:visible bind:this={currentModal}>
+<div
+  id="topModal"
+  class:visible
+  bind:this={currentModal}
+  on:click|stopPropagation={() => {
+    console.log("topClose");
+    close();
+  }}
+>
   <div id="modal" on:click|stopPropagation={() => {}}>
     <div id="modal-content">
       <slot />

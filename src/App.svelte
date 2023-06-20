@@ -14,12 +14,15 @@
   });
 
   function closeCallback() {
+    console.log("closeCallback");
   }
+
   function handleOpen() {
     modal.open(closeCallback);
   }
 
   function handleClose() {
+    console.log("弹窗close");
     modal.close();
   }
 </script>
