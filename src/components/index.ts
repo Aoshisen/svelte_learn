@@ -1,1 +1,4 @@
-export { default as Counter } from "./Counter/index.svelte";
+export { default as Counter } from "./Counter/counter.svelte";
+
+export { default as Modal } from "./Modal/modal.svelte";
+
