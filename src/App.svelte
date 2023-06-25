@@ -22,7 +22,6 @@
   }
 
   function handleClose() {
-    console.log("弹窗close");
     modal.close();
   }
 </script>

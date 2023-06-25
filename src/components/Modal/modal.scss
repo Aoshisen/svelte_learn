@@ -1,24 +1,25 @@
-#topModal {
-  visibility: hidden;
-  z-index: 9999;
-  position: fixed;
+@mixin fill() {
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.68);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-#modal {
-  position: relative;
-}
+#modal-container {
+  #modal-inner {
+    z-index: 9999;
+    position: fixed;
+    @include fill;
+    #mask {
+      position: absolute;
+      @include fill;
+      background: rgba(0, 0, 0, 0.68);
+    }
 
-.visible {
-  visibility: visible !important;
+    #modal {
+      position: absolute;
+    }
+  }
 }
-
 #modal-content {
   max-width: calc(100vw - 20px);
   max-height: calc(100vh - 20px);

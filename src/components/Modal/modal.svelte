@@ -12,10 +12,15 @@
 </script>
 
 <script lang="ts">
-  import { onDestroy } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   let currentModal: HTMLElement;
   let visible = false;
   let closeCallback: () => void;
+  import { fade } from "svelte/transition";
+
+  onMount(() => {
+    document.body.appendChild(currentModal);
+  });
 
   //打开弹窗的副作用函数
   function openEffect() {
@@ -35,7 +40,6 @@
     if (visible) return;
     openEffect();
     visible = true;
-    document.body.appendChild(currentModal);
   }
 
   //定义挂载到modal 的close 函数
@@ -57,18 +61,22 @@
   }
 </script>
 
-<div
-  id="topModal"
-  class:visible
-  bind:this={currentModal}
-  on:click|stopPropagation={handleMaskClick}
->
-  <!-- 阻止modal 里面的点击事件冒泡到全局 -->
-  <div id="modal" on:click|stopPropagation={() => {}}>
-    <div id="modal-content">
-      <slot />
+<div id="modal-container" bind:this={currentModal}>
+  {#if visible}
+    <div id="modal-inner">
+      <div
+        id="mask"
+        on:click|stopPropagation={handleMaskClick}
+        transition:fade
+      />
+      <!-- 阻止modal 里面的点击事件冒泡到全局 -->
+      <div id="modal" on:click|stopPropagation={() => {}}>
+        <div id="modal-content">
+          <slot />
+        </div>
+      </div>
     </div>
-  </div>
+  {/if}
 </div>
 
 <style lang="scss" src="./modal.scss"></style>
