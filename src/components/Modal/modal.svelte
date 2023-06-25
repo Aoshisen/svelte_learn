@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
   export interface Modal {
     close: () => void;
-    open: (callback?: any) => void;
+    open: () => void;
   }
 
   let modal: Modal;
@@ -15,12 +15,22 @@
   import { onDestroy, onMount } from "svelte";
   let currentModal: HTMLElement;
   let visible = false;
-  let closeCallback: () => void;
+
+  //添加动画
   import { fade } from "svelte/transition";
 
+  //组件挂载的时候需要挂载到body 上面
   onMount(() => {
     document.body.appendChild(currentModal);
   });
+
+  //改变弹窗的显示隐藏
+  function changeVisible(_visible: boolean) {
+    if (visible === _visible) {
+      return;
+    }
+    visible = _visible;
+  }
 
   //打开弹窗的副作用函数
   function openEffect() {
@@ -35,19 +45,15 @@
   }
 
   //定义挂载到modal 的open 函数
-  function open(callback: any) {
-    closeCallback = callback;
-    if (visible) return;
+  function open() {
+    changeVisible(true);
     openEffect();
-    visible = true;
   }
 
   //定义挂载到modal 的close 函数
   function close() {
-    if (!visible) return;
-    visible = false;
+    changeVisible(false);
     closeEffect();
-    closeCallback && closeCallback();
   }
 
   //挂载到modal上(通过getModal 可以丛外部拿到此modal的示例)
