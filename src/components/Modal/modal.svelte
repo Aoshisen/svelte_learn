@@ -61,7 +61,7 @@
   }
 </script>
 
-<div id="modal-container" bind:this={currentModal}>
+<div id="modal" bind:this={currentModal}>
   {#if visible}
     <div id="modal-inner">
       <div
@@ -70,10 +70,8 @@
         transition:fade
       />
       <!-- 阻止modal 里面的点击事件冒泡到全局 -->
-      <div id="modal" on:click|stopPropagation={() => {}}>
-        <div id="modal-content">
-          <slot />
-        </div>
+      <div id="content" on:click|stopPropagation={() => {}}>
+        <slot />
       </div>
     </div>
   {/if}
