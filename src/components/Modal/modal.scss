@@ -4,17 +4,18 @@
   right: 0;
   bottom: 0;
 }
-#modal {
-  #modal-inner {
+
+.modal {
+  .modal-inner {
     z-index: 9999;
     position: fixed;
     @include fill;
-    #mask {
+    .mask {
       position: absolute;
       @include fill;
       background: rgba(0, 0, 0, 0.68);
     }
-    #content {
+    .content {
       position: absolute;
       max-width: calc(100vw - 20px);
       max-height: calc(100vh - 20px);

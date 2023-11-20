@@ -1,7 +1,5 @@
 import { writable } from "svelte/store";
-import { priceTypeLocalData } from "@utils";
-import { initData } from "@utils";
-import { STATUS, GLOBALDATANAME } from "@utils";
+import { priceTypeLocalData, initData, STATUS, GLOBALDATANAME } from "@utils";
 
 const { data } = priceTypeLocalData;
 const { subscribe, set, update } = writable(data);

@@ -67,16 +67,15 @@
   }
 </script>
 
-<div id="modal" bind:this={currentModal}>
+<div class="modal" bind:this={currentModal}>
   {#if visible}
-    <div id="modal-inner">
+    <div class="modal-inner">
       <div
-        id="mask"
+        class="mask"
         on:click|stopPropagation={handleMaskClick}
         transition:fade
       />
-      <!-- 阻止modal 里面的点击事件冒泡到全局 -->
-      <div id="content" on:click|stopPropagation={() => {}}>
+      <div class="content" on:click|stopPropagation={() => {}}>
         <slot />
       </div>
     </div>

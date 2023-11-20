@@ -1,8 +1,6 @@
 <script lang="ts">
-  import { Counter, Modal } from "@components";
-
-  import { getModal } from "@/components/Modal/modal.svelte";
-  import type { Modal as ModalType } from "@/components/Modal/modal.svelte";
+  import { Modal } from "@components";
+  import { getModal, Modal as ModalType } from "@components/Modal/modal.svelte";
 
   import { onMount } from "svelte";
   export let message = "hello";
@@ -24,6 +22,7 @@
   function handleClose() {
     modal.close();
   }
+  console.log(import.meta.env.VITE_APP_ENV, "app_env in code");
 </script>
 
 <main>

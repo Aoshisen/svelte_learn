@@ -1,6 +1,6 @@
 <script lang="ts">
   import { count } from "@store";
-  import axios from "@/api";
+  import axios from "@api";
   const handleClick = () => {
     count.increment();
     axios.post("/api/customers");
