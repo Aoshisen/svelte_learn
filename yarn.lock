@@ -983,6 +983,11 @@ vite-imagetools@^6.2.4:
     "@rollup/pluginutils" "^5.0.2"
     imagetools-core "^6.0.0"
 
+vite-plugin-banner@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-banner/-/vite-plugin-banner-0.7.1.tgz#16550c27983938d52e4a4ee8a71c7266db4f5ab8"
+  integrity sha512-Bww2Xd5tOGsZ1yZ9rQiGneryvsL1u86znPrqeQjCsXPsG72pnSdV5lcQA+cy8UNDguMqyTJiCevlNUbLnT85UA==
+
 vite-plugin-progress@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/vite-plugin-progress/-/vite-plugin-progress-0.0.7.tgz#10979d2195b4dd1960ad0ec9347ce844fc13b97d"

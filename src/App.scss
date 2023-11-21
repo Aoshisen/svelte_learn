@@ -16,6 +16,9 @@ main {
     line-height: 1.1;
     margin: 2rem auto;
     max-width: 14rem;
+    //通过src的静态资源目录引入图片
+    background-image: url("./assets/images/svelte.png");
+    //通过public 目录引入图片
     background-image: url("/favicon.ico");
   }
   // .grid {
