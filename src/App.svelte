@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Modal } from "@components";
+  import { Counter, Modal } from "@components";
   import { getModal, Modal as ModalType } from "@components/Modal/modal.svelte";
 
   import { onMount } from "svelte";
@@ -25,22 +25,22 @@
   console.log(import.meta.env.VITE_APP_ENV, "app_env in code");
 </script>
 
-<main>
+<main class="main">
   <h1>{message}</h1>
   <button on:click={handleOpen}>add Modal</button>
   <button on:click={handleClose}>close</button>
-  <!-- <Counter />
+  <Counter />
 
   <div class="grid">
     <div class="item">1</div>
     <div class="item">2</div>
     <div class="item">3</div>
     <div class="item">4</div>
-  </div> -->
+  </div>
 
   <Modal>
     <div on:click={handleClose}>弹窗里面关闭</div>
   </Modal>
 </main>
 
-<style lang="scss" src="./App.scss"></style>
+<style lang="scss" src="./App.scss" module></style>

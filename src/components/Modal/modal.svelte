@@ -88,4 +88,4 @@
   {/if}
 </div>
 
-<style lang="scss" src="./modal.scss"></style>
+<style lang="scss" src="./modal.scss" module></style>

@@ -7,6 +7,6 @@
   };
 </script>
 
-<button on:click={handleClick}> Clicks:{$count.age} </button>
+<button on:click={handleClick} class="button"> Clicks:{$count.age} </button>
 
-<style lang="scss" src="./counter.scss"></style>
+<style lang="scss" src="./counter.scss" module></style>

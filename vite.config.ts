@@ -25,10 +25,7 @@ const preprocess = linearPreprocess([
       prependData: scssPrependData,
     },
   }),
-  cssModules({
-    mode: "scoped",
-    useAsDefaultScoping: true,
-  }),
+  cssModules({}),
 ]);
 
 const onwarn: SvelteOptions["onwarn"] = (warning, defaultHandler) => {
