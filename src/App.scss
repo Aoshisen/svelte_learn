@@ -19,7 +19,7 @@ main {
     //通过src的静态资源目录引入图片
     background-image: url("./assets/images/svelte.png");
     //通过public 目录引入图片
-    background-image: url("/favicon.ico");
+    background-image: url("/images/favicon.ico");
   }
   // .grid {
   //   width: 500px;
