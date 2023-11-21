@@ -10,15 +10,14 @@
     z-index: 9999;
     position: fixed;
     @include fill;
+
     .mask {
       position: absolute;
       @include fill;
       background: rgba(0, 0, 0, 0.68);
     }
+
     .content {
-      .img {
-        font-size: 0;
-      }
       position: absolute;
       max-width: calc(100vw - 20px);
       max-height: calc(100vh - 20px);

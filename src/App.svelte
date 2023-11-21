@@ -1,26 +1,20 @@
 <script lang="ts">
   import { Counter, Modal } from "@components";
-  import { getModal, Modal as ModalType } from "@components/Modal/modal.svelte";
-
-  import { onMount } from "svelte";
   export let message = "hello";
-
-  let modal: ModalType;
-
-  onMount(() => {
-    modal = getModal();
-  });
-
-  function closeCallback() {
-    console.log("closeCallback");
-  }
+  let visible: boolean = false;
 
   function handleOpen() {
-    modal.open(closeCallback);
+    visible = true;
   }
 
   function handleClose() {
-    modal.close();
+    visible = false;
+  }
+  function onOpen() {
+    console.log("onOpen");
+  }
+  function onClose() {
+    console.log("onClose");
   }
   console.log(import.meta.env.VITE_APP_ENV, "app_env in code");
 </script>
@@ -38,7 +32,12 @@
     <div class="item">4</div>
   </div>
 
-  <Modal>
+  <Modal
+    bind:visible
+    on:close={onClose}
+    on:open={onOpen}
+    enable_mask_close={false}
+  >
     <div on:click={handleClose}>弹窗里面关闭</div>
   </Modal>
 </main>
