@@ -7,6 +7,7 @@ import progress from "vite-plugin-progress";
 import banner from "vite-plugin-banner";
 import pkg from "./package.json";
 import path from "path";
+import { linearPreprocess, cssModules } from "svelte-preprocess-cssmodules";
 
 const filePath = path.dirname(import.meta.url);
 
@@ -18,17 +19,28 @@ function fileBannerText() {
 
 const scssPrependData = `@import "${filePath}/src/assets/styles/global.scss";`;
 
-const preprocess = sveltePreprocess({
-  scss: {
-    prependData: scssPrependData,
-  },
-});
+const preprocess = linearPreprocess([
+  sveltePreprocess({
+    scss: {
+      prependData: scssPrependData,
+    },
+  }),
+  cssModules({
+    mode: "scoped",
+    useAsDefaultScoping: true,
+  }),
+]);
 
 const onwarn: SvelteOptions["onwarn"] = (warning, defaultHandler) => {
   if (warning.code === "a11y-click-events-have-key-events") {
     return;
   }
   defaultHandler && defaultHandler(warning);
+};
+const compilerOptions: SvelteOptions["compilerOptions"] = {
+  cssHash: ({ css, hash }) => {
+    return `ass-${hash(css)}`;
+  },
 };
 
 export default defineConfig(({ command, mode }) => {
@@ -43,6 +55,8 @@ export default defineConfig(({ command, mode }) => {
       svelte({
         preprocess,
         onwarn,
+        compilerOptions,
+        emitCss: false,
       }),
     ],
     define: {
