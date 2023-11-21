@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv } from "vite";
 import { SvelteOptions, svelte } from "@sveltejs/vite-plugin-svelte";
+import { enhancedImages } from "@sveltejs/enhanced-img";
 import sveltePreprocess from "svelte-preprocess";
 import tsconfigPaths from "vite-tsconfig-paths";
 import progress from "vite-plugin-progress";
@@ -37,6 +38,8 @@ export default defineConfig(({ command, mode }) => {
       progress(),
       tsconfigPaths(),
       fileBannerText(),
+      // https://github.com/JonasKruckenberg/imagetools/blob/main/docs/directives.md
+      enhancedImages(),
       svelte({
         preprocess,
         onwarn,

@@ -76,6 +76,12 @@
         transition:fade
       />
       <div class="content" on:click|stopPropagation={() => {}}>
+        <div class="img">
+          <enhanced:img
+            src="../../assets/images/svelte.png?w=200&blur=50"
+            alt="an alt text"
+          />
+        </div>
         <slot />
       </div>
     </div>
