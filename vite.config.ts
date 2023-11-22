@@ -53,14 +53,15 @@ export default defineConfig(({ command, mode }) => {
         preprocess,
         onwarn,
         compilerOptions,
-        emitCss: false,
+        //开启这个属性 会在打包的时候多一个css 文件,但是在浏览器除了原本的css选择器会再多一个额外的css 选择器,
+        emitCss: true,
       }),
     ],
     define: {
       __APP_ENV__: JSON.stringify(env.APP_ENV),
     },
-    css: {
-      devSourcemap: true,
+    build: {
+      sourcemap: mode === "development",
     },
   };
 });
