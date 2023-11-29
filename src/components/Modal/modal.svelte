@@ -5,7 +5,6 @@
   export let enable_mask_close: boolean = true;
   import { fade } from "svelte/transition";
   const dispatcher = createEventDispatcher();
-  
   onMount(() => {
     document.body.appendChild(currentModal);
   });
