@@ -42,4 +42,4 @@
   </Modal>
 </main>
 
-<style lang="scss" src="./App.module.scss" module></style>
+<style lang="scss" src="./App.scss" module></style>

@@ -4,11 +4,7 @@ export class Context {
   public setting: Setting;
   static async create(): Promise<Context> {
     const ctxInstance = new Context();
-    try {
-      await ctxInstance.init();
-    } catch (error) {
-      console.error("Error occurred during initialization:", error);
-    }
+    await ctxInstance.init();
     return ctxInstance;
   }
   async init() {
@@ -28,6 +24,11 @@ export async function createContext() {
 }
 
 export function getContext(): Context {
+  if (!ctx) {
+    console.error(
+      "如果要使用context 请先异步调用createContext 创建全局context"
+    );
+  }
   return ctx;
 }
 
