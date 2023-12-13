@@ -6,4 +6,4 @@ export * from "./customEvents";
 
 export * from "./list";
 
-export * from "./getNode";
+export * from "./scroll";

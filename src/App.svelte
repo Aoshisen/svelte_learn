@@ -32,12 +32,7 @@
     <div class="item">4</div>
   </div>
 
-  <Modal
-    bind:visible
-    on:close={onClose}
-    on:open={onOpen}
-    enable_mask_close={false}
-  >
+  <Modal bind:visible on:close={onClose} on:open={onOpen}>
     <div on:click={handleClose}>弹窗里面关闭</div>
   </Modal>
 </main>

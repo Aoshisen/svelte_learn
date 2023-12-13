@@ -1,29 +1,26 @@
 <script lang="ts">
   import { onMount, createEventDispatcher } from "svelte";
-  let currentModal: HTMLElement;
+  import { fade } from "svelte/transition";
+  import { enableScroll, disableScroll } from "@utils";
   export let visible: boolean = false;
   export let enable_mask_close: boolean = true;
-  import { fade } from "svelte/transition";
   const dispatcher = createEventDispatcher();
+  let currentModal: HTMLElement;
   onMount(() => {
     document.body.appendChild(currentModal);
   });
-
-  function openEffect() {
-    document.body.style.overflow = "hidden";
+  // 将事件名称抽象为常量
+  enum MODAL_EVENT {
+    OPEN = "open",
+    CLOSE = "close",
   }
-
-  function closeEffect() {
-    document.body.style.overflow = "";
-  }
-
   $: {
     if (visible) {
-      openEffect();
-      dispatcher("open");
+      dispatcher(MODAL_EVENT.OPEN);
+      disableScroll();
     } else {
-      closeEffect();
-      dispatcher("close");
+      dispatcher(MODAL_EVENT.OPEN);
+      enableScroll();
     }
   }
 

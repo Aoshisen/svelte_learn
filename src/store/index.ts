@@ -5,8 +5,6 @@ const { data } = priceTypeLocalData;
 const { subscribe, set, update } = writable(data);
 const initAssLocalData = initData[GLOBALDATANAME["PRICETYPE"]];
 
-const { assign } = Object;
-
 const increment = () => {
   update((data) => {
     let assignData = {
@@ -14,7 +12,7 @@ const increment = () => {
       status: STATUS.ACTIVE,
     };
 
-    return (data = assign(data, assignData));
+    return (data = { ...data, ...assignData });
   });
 };
 
@@ -24,7 +22,7 @@ const decrement = () => {
     status: STATUS.ACTIVE,
   };
   update((data) => {
-    return (data = assign(data, assignData));
+    return (data = { ...data, ...assignData });
   });
 };
 
