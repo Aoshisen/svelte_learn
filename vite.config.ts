@@ -7,6 +7,7 @@ import { defineConfig, loadEnv } from "vite";
 import progress from "vite-plugin-progress";
 import banner from "vite-plugin-banner";
 import pkg from "./package.json";
+import topLevelAwait from "vite-plugin-top-level-await";
 import path from "path";
 
 const filePath = path.dirname(import.meta.url);
@@ -18,7 +19,6 @@ function fileBannerText() {
 }
 
 const scssPrependData = `@import "${filePath}/src/assets/styles/global.scss";`;
-console.log(scssPrependData, "data<<<<<<<<");
 
 const preprocess = linearPreprocess([
   sveltePreprocess({
@@ -44,6 +44,11 @@ const compilerOptions: SvelteOptions["compilerOptions"] = {
   },
 };
 
+const topLevelAwaitOptions = {
+  promiseExportName: "__tla",
+  promiseImportName: (i) => `__tla_${i}`,
+};
+
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
@@ -52,6 +57,7 @@ export default defineConfig(({ command, mode }) => {
       fileBannerText(),
       enhancedImages(),
       progress(),
+      topLevelAwait(topLevelAwaitOptions),
       svelte({
         preprocess,
         onwarn,

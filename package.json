@@ -23,6 +23,7 @@
     "vite": "^4.2.1",
     "vite-plugin-banner": "^0.7.1",
     "vite-plugin-progress": "^0.0.7",
+    "vite-plugin-top-level-await": "^1.4.1",
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
