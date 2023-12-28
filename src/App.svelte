@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Counter, Modal } from "@components";
+  import { Counter, Modal, Dialog } from "@components";
   export let message = "hello";
   let visible: boolean = false;
 
@@ -8,6 +8,7 @@
   }
 
   function handleClose() {
+    console.log("handleClose");
     visible = false;
   }
   function onOpen() {
@@ -32,9 +33,12 @@
     <div class="item">4</div>
   </div>
 
-  <Modal bind:visible on:close={onClose} on:open={onOpen}>
+  <!-- <Modal bind:visible on:close={onClose} on:open={onOpen}>
     <div on:click={handleClose}>弹窗里面关闭</div>
-  </Modal>
+  </Modal> -->
+  <Dialog bind:visible enable_mask_close>
+    <div on:click={handleClose}>弹窗里面关闭</div>
+  </Dialog>
 </main>
 
 <style lang="scss" src="./App.scss" module></style>
